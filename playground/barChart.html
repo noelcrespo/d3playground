@@ -16,8 +16,8 @@
 		    const w = 600;
 		    const h = 250;
 			
-			let dataset = [ { key: 0, value: 5 },		//dataset is now an array of objects.
-							{ key: 1, value: 10 },		//Each object has a 'key' and a 'value'.
+			let dataset = [ { key: 0, value: 5 },
+							{ key: 1, value: 10 },	
 							{ key: 2, value: 13 },
 							{ key: 3, value: 19 },
 							{ key: 4, value: 21 },
@@ -169,18 +169,14 @@
 						})
 						.attr("text-anchor", "middle")
 						.attr("x", w)
-						.attr("y", function(d) {
-							return h - yScale(d.value) + 14;
-						})						
+						.attr("y", (d) => h - yScale(d.value) + 14)						
 					   .attr("font-family", "sans-serif")
 					   .attr("font-size", "11px")
 					   .attr("fill", "white")
-					   .merge(labels)	//Update…
+					   .merge(labels)	//Update
 					   .transition()
 					   .duration(500)
-					   .attr("x", function(d, i) {
-							return xScale(i) + xScale.bandwidth() / 2;
-					   });
+					   .attr("x", (d, i) => xScale(i) + xScale.bandwidth() / 2);
 				});
 		</script>
 	</body>
