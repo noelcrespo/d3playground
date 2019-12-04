@@ -39,16 +39,16 @@
 ;
             let key = d => d.key;
             
-			var xScale = d3.scaleBand()
+			let xScale = d3.scaleBand()
 							.domain(d3.range(dataset.length))
 							.rangeRound([0, w])
 							.paddingInner(0.05);
-			var yScale = d3.scaleLinear()
+			let yScale = d3.scaleLinear()
 							.domain([0, d3.max(dataset, d => d.value)])
 							.range([0, h]);
 			
 			//Create SVG element
-			var svg = d3.select("body")
+			let svg = d3.select("body")
 						.append("svg")
 						.attr("width", w)
 						.attr("height", h);
@@ -95,10 +95,10 @@
 
 					if (paragraphId == "add") {
 						//Add a data value
-						var minValue = 2;
-						var maxValue = 25 - minValue;
-						var newNumber = Math.floor(Math.random() * maxValue) + minValue;
-						var lastKeyValue = dataset[dataset.length - 1].key;
+						let minValue = 2;
+						let maxValue = 25 - minValue;
+						let newNumber = Math.floor(Math.random() * maxValue) + minValue;
+						let lastKeyValue = dataset[dataset.length - 1].key;
 						dataset.push({
 							key: lastKeyValue + 1,
 							value: newNumber
@@ -112,7 +112,7 @@
 					xScale.domain(d3.range(dataset.length));	//Recalibrate the x scale domain, given the new length of dataset
 					yScale.domain([0, d3.max(dataset, d => d.value)]);		//Recalibrate the y scale domain, given the new max value in dataset
 					//Select…
-					var bars = svg.selectAll("rect")			//Select all bars
+					let bars = svg.selectAll("rect")			//Select all bars
 						.data(dataset, key);							//Re-bind data to existing bars, return the 'update' selection
 																//'bars' is now the update selection
 					
@@ -152,7 +152,7 @@
                         
 					//Update all labels
 					//Select…
-					var labels = svg.selectAll("text")
+					let labels = svg.selectAll("text")
 						.data(dataset, key);
   					//Exit…
   					labels.exit()

@@ -47,22 +47,22 @@
         </div>
 		<script type="text/javascript">
 			//Width and height
-			var w = 600;
-            var h = 250;
+			let w = 600;
+            let h = 250;
             let sortOrder = false;
 			
-			var dataset = [ 5, 10, 13, 19, 21, 25, 22, 18, 15, 13,
+			let dataset = [ 5, 10, 13, 19, 21, 25, 22, 18, 15, 13,
 							11, 12, 15, 20, 18, 17, 16, 18, 23, 25 ];
-			var xScale = d3.scaleBand()
+			let xScale = d3.scaleBand()
 							.domain(d3.range(dataset.length))
 							.rangeRound([0, w])
 							.paddingInner(0.05);
-			var yScale = d3.scaleLinear()
+			let yScale = d3.scaleLinear()
 							.domain([0, d3.max(dataset)])
 							.range([0, h]);
 			
 			//Create SVG element
-			var svg = d3.select("body")
+			let svg = d3.select("body")
 						.append("svg")
 						.attr("width", w)
 						.attr("height", h);
